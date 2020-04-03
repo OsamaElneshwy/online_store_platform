@@ -1,0 +1,22 @@
+﻿@using SWE2.Models
+@model List<Admin>
+@{
+    ViewBag.Title = "UesrsList";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>UesrsList</h2>
+<hr>
+<table border="1">
+    <tr>
+        <th style="text-align:center; padding:10px">Users</th>
+        <th style="text-align:center; padding:10px">Discriminator</th>
+    </tr>
+    @foreach (var User in Model)
+    {
+        <tr>
+            <td style="text-align:center; padding:5px">@User.getemail()</td>
+            <td style="text-align:center; padding:5px">@User.geteDiscriminator()</td>
+        </tr>
+    }
+</table>
