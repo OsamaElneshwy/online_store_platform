@@ -10,18 +10,18 @@ namespace SWE2.Models
     public class ApplicationUser
     {
         [Key]
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
+        public int Id { get; set; }
+        [Required]
         public string Email { get; set; }
+        [Required]
+        public string Password { get; set; }
+        [Required]
         public string Role { get; set; }
     }
 
     public class ApplicationDbContext : System.Data.Entity.DbContext
     {
-        private const string ConnectionString =
-            "LocalDb";
+        private const string ConnectionString = "SWEData";
 
         public ApplicationDbContext() : base(ConnectionString)
         {

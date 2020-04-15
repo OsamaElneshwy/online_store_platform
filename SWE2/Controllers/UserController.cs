@@ -12,11 +12,44 @@ namespace SWE2.Controllers
 {
     public class UserController : ApiController
     {
-        [Route("h5a/app/h5a")]
-        public IEnumerable<ApplicationUser> Geth5a()
+
+
+        [Authorize(Roles = "Admin")]
+        [Route("UserList")]
+        public IEnumerable<ApplicationUser> GetUserList()
         {
-            var context= new ApplicationDbContext();
-            return context.ApplicationUsers;
+            var ad = new Admin();
+            return ad.UserList();
+
         }
+
+
+
+        [Route("Register")]
+        public string Register(int id , string email,string password, string role)
+        {
+            if(role == "Admin" || role == "Customer" || role == "StoreOwner" )
+            {
+                var context = new ApplicationDbContext();
+                context.ApplicationUsers.Add(new ApplicationUser
+                {
+                    Email = email,
+                    Id = id,
+                    Password = password,
+                    Role = role
+                });
+                context.SaveChanges();
+                return "Added successfully";
+            }
+            else
+            {
+                return "Check your data";
+            }
+             
+        }
+
+
+
+
     }
 }

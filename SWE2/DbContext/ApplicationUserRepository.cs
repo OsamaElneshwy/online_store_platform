@@ -10,10 +10,10 @@ namespace SWE2.DbContext
     {
         ApplicationDbContext context = new ApplicationDbContext();
         //This method is used to check and validate the user credentials
-        public ApplicationUser ValidateUser(string username, string password)
+        public ApplicationUser ValidateUser(string Email, string password)
         {
             return context.ApplicationUsers.FirstOrDefault(user =>
-                user.Username.Equals(username, StringComparison.OrdinalIgnoreCase)
+                user.Email.Equals(Email, StringComparison.OrdinalIgnoreCase)
                 && user.Password == password);
         }
         public void Dispose()
