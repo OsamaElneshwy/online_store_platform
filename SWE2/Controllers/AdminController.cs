@@ -3,19 +3,26 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
+using System.Web.Http;
+
 
 namespace SWE2.Controllers
 {
-    public class AdminController : Controller
+    public class AdminController : ApiController
     {
         // GET: Admin
-        public ActionResult Index()
+
+
+
+        [Authorize(Roles = "Admin")]
+        [Route("UserList")]
+        public IEnumerable<ApplicationUser> GetUserList()
         {
-            return View();
+            var ad = new Admin();
+            return ad.UserList();
+
         }
 
-        
 
     }
 }

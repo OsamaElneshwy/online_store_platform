@@ -14,15 +14,7 @@ namespace SWE2.Controllers
     {
 
 
-        [Authorize(Roles = "Admin")]
-        [Route("UserList")]
-        public IEnumerable<ApplicationUser> GetUserList()
-        {
-            var ad = new Admin();
-            return ad.UserList();
-
-        }
-
+       
 
 
         [Route("Register")]

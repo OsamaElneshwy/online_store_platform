@@ -21,7 +21,7 @@ namespace SWE2.Models
 
     public class ApplicationDbContext : System.Data.Entity.DbContext
     {
-        private const string ConnectionString = "SWEData";
+        private const string ConnectionString = "Server=tcp:team98.database.windows.net,1433;Initial Catalog=online_store_platform;Persist Security Info=False;User ID=ebrahim;Password=SamoTarek98;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
         public ApplicationDbContext() : base(ConnectionString)
         {
