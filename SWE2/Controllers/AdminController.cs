@@ -8,7 +8,7 @@ using System.Web.Http;
 
 namespace SWE2.Controllers
 {
-    public class AdminController : ApiController
+    public class AdminController : UserController
     {
         // GET: Admin
 

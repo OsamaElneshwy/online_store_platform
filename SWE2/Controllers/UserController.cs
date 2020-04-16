@@ -14,13 +14,10 @@ namespace SWE2.Controllers
     {
 
 
-       
-
-
         [Route("Register")]
-        public string Register(int id , string email,string password, string role)
+        public string Register(int id, string email, string password, string role)
         {
-            if(role == "Admin" || role == "Customer" || role == "StoreOwner" )
+            if (role == "Admin" || role == "Customer" || role == "StoreOwner")
             {
                 var context = new ApplicationDbContext();
                 context.ApplicationUsers.Add(new ApplicationUser
@@ -37,10 +34,8 @@ namespace SWE2.Controllers
             {
                 return "Check your data";
             }
-             
+
         }
-
-
 
 
     }
